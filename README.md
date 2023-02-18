@@ -4,7 +4,7 @@
 ## Installation 
 
 Run the following command:
-npm install simple-component-library
+npm install projet-14hrnet-plugin-modal
 
 ## Usage
 
@@ -12,13 +12,13 @@ import React, { useState, useEffect } from 'react'
 import Modal from 'projet-14hrnet-plugin-modal'
 
 export default function Modal(props) {
+
  const [modal, setModal] = useState(false)
 
   const toggleModal = () => {
     setModal(!modal)
   }
   
-
   return (
     <>
       <button onClick={toggleModal} className="btn-modal">
