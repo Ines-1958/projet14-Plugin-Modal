@@ -2,7 +2,7 @@ import React, { useEffect, useRef  } from 'react'
 import './Modal.scss'
 
 export default function Modal(props) {
-  const { modal, setModal } = props
+  const { modal, setModal, title, message } = props
   const modalRef = useRef(null)
 
   const toggleModal = () => {
@@ -12,14 +12,14 @@ export default function Modal(props) {
   
   useEffect(() => {
 
-    /**Permet de fermer la modale avec la touche echap du clavier */
+    /**Allows you to close the modal with the escape key on the keyboard */
     function handleEscKey(event) {
       if (event.key === 'Escape') {
         setModal(false)
       }
     }
 
-    /**Permet de fermer la modale en cliquant n'importe où sur la page */
+    /**Allows you to close the modal by clicking anywhere on the page */
     function handleClickOutside(event) {
         if (modalRef.current && !modalRef.current.contains(event.target)) {
           setModal(false)
@@ -42,9 +42,9 @@ export default function Modal(props) {
           <div  className="modal" ref={modalRef}>
             <div className="modal-content" >
               <p>
-                <strong>Employee Created!</strong>
+                <strong>{title}</strong>
               </p>
-              <p>The employee has been added to the database.</p>
+              <p>{message}</p>
 
               <button onClick={toggleModal} className="close-modal btn-primary">
                 <span className="btn-close">Close</span>

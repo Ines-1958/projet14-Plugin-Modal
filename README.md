@@ -4,10 +4,18 @@
 ## Installation 
 
 Run the following command:
-npm install simple-component-library
+npm install projet-14hrnet-plugin-modal
 
 ## Usage
+There are different props used including:
+ - modal: which is the initial state set to false
+ - setModal: is the function that manages the state, depending on whether it is true for opening the modal or false for     closing
+ - title: is the prop used to display the title of the modal
+ - message: is the prop that displays the message contained in the modal (if there is one).
 
+So, using the modal, the code should look like the following: When the open button is clicked, the toggleModal function which manages the opening and closing of the modal is called
+
+```javascript
 import React, { useState, useEffect } from 'react'
 import Modal from 'projet-14hrnet-plugin-modal'
 
@@ -18,29 +26,19 @@ export default function Modal(props) {
     setModal(!modal)
   }
   
-
   return (
     <>
       <button onClick={toggleModal} className="btn-modal">
         Open
-      </button> 
+      </button>
 
-      {modal && (
-        <div id="confirmation" className="modal-container">
-          <div className="modal">
-            <div className="modal-content">
-              <p>
-                <strong>Employee Created!</strong>
-              </p>
-              <p>The employee has been added to the database</p>
-
-              <button onClick={toggleModal} className="close-modal btn-primary">
-                <span className="btn-close">Close</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <Modal
+        modal={modal}
+        setModal={setModal}
+        title={'Employee Created!'}
+        message={'The employee has been added to the database.'}
+      />
     </>
   )
 }
+```
