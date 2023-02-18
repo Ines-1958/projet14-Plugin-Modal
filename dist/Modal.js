@@ -9,20 +9,22 @@ var _react = _interopRequireWildcard(require("react"));
 require("./Modal.scss");
 function Modal(props) {
   var modal = props.modal,
-    setModal = props.setModal;
+    setModal = props.setModal,
+    title = props.title,
+    message = props.message;
   var modalRef = (0, _react.useRef)(null);
   var toggleModal = function toggleModal() {
     setModal(!modal);
   };
   (0, _react.useEffect)(function () {
-    /**Permet de fermer la modale avec la touche echap du clavier */
+    /**Allows you to close the modal with the escape key on the keyboard */
     function handleEscKey(event) {
       if (event.key === 'Escape') {
         setModal(false);
       }
     }
 
-    /**Permet de fermer la modale en cliquant n'importe où sur la page */
+    /**Allows you to close the modal by clicking anywhere on the page */
     function handleClickOutside(event) {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         setModal(false);
@@ -43,7 +45,7 @@ function Modal(props) {
     ref: modalRef
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "modal-content"
-  }, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, "Employee Created!")), /*#__PURE__*/_react.default.createElement("p", null, "The employee has been added to the database."), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("strong", null, title)), /*#__PURE__*/_react.default.createElement("p", null, message), /*#__PURE__*/_react.default.createElement("button", {
     onClick: toggleModal,
     className: "close-modal btn-primary"
   }, /*#__PURE__*/_react.default.createElement("span", {
