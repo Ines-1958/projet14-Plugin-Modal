@@ -1,12 +1,12 @@
 # projet-14hrnet-plugin-modal of React components created using `create-react-app`
 
-
 ## Installation 
 
 Run the following command:
 npm install projet-14hrnet-plugin-modal
 
 ## Usage
+
 There are different props used including:
  - modal: which is the initial state set to false
  - setModal: is the function that manages the state, depending on whether it is true for opening the modal or false for     closing
@@ -20,6 +20,7 @@ import React, { useState, useEffect } from 'react'
 import Modal from 'projet-14hrnet-plugin-modal'
 
 export default function Modal(props) {
+
  const [modal, setModal] = useState(false)
 
   const toggleModal = () => {
@@ -41,4 +42,3 @@ export default function Modal(props) {
     </>
   )
 }
-```
